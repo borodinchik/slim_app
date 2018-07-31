@@ -1,7 +1,5 @@
 <?php
 
+use App\Controllers\UserController;
 
-$app->get('/', function ()
-{
-    return 'Homr page';
-});
+$app->get('/', UserController::class . ":index");
