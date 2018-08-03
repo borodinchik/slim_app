@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-use App\Controllers\UserController;
+use App\Validation\Validator;
+use Respect\Validation\Validator as v;
 
 session_start();
 
 require __DIR__ . '/../vendor/autoload.php';
-
 
 $app = new \Slim\App([
     'settings' => [
@@ -26,6 +26,13 @@ $app = new \Slim\App([
 
 $container = $app->getContainer();
 
+//Validator
+
+$container['validator'] = function ($container)
+{
+    return new Validator;
+};
+
 /* 
 * Eloquent settings 
 */
@@ -39,11 +46,14 @@ $container['db'] = function ($container) use ($capsule) {
     return $capsule;
 };
 
-//controller container
-
-$container['UserController'] = function ($container) {
-    return new UserController($container);
+$container['auth'] = function ($container)
+{
+    return new \App\Auth\Auth();
 };
+
+
+v::with('App\\Rules\\');
+
 
 require __DIR__ . '/../routes/web.php';
 

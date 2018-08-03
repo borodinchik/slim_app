@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2700807797">
+  <component name="DataSourceManagerImpl" format="xml" hash="3845259226">
     <data-source source="LOCAL" name="MySQL - slim_app_com@localhost" uuid="1592a165-ab29-4f78-96ae-92606f555935">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
